@@ -37,9 +37,9 @@ const Services = () => {
                     nisi vitae
                   </li>
                 </ul>
-                <a href="#" className="btn btn-style-one">
+                {/* <a href="#" className="btn btn-style-one">
                   Appoint
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-6">
@@ -214,9 +214,9 @@ const Services = () => {
                         is part of oral hygiene and involves
                       </li>
                     </ul>
-                    <a href="#" className="btn btn-style-one">
+                    {/* <a href="#" className="btn btn-style-one">
                       Read more
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const UpperHeader = () => {
@@ -35,9 +36,9 @@ const UpperHeader = () => {
               </li>
             </ul>
             <div className="link-btn">
-              <a href="#" className="btn-style-one">
+              <Link href="/appointment" className="btn-style-one">
                 Appoinment
-              </a>
+              </Link>
             </div>
           </div>
         </div>

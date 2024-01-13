@@ -1,4 +1,5 @@
 import React from "react";
+import Appointment from "../appointment/Appointment";
 
 const Contact = () => {
   return (
@@ -41,18 +42,13 @@ const Contact = () => {
                         aria-labelledby="headingOne"
                       >
                         <div className="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
-                          officia aute, non cupidatat skateboard dolor brunch.
-                          Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-                          wolf moon tempor, sunt aliqua put a bird on it squid
-                          single-origin coffee nulla assumenda shoreditch et.
-                          Nihil anim keffiyeh helvetica, craft beer labore wes
-                          anderson cred nesciunt sapiente ea proident. Ad vegan
-                          excepteur butcher vice lomo. Leggings occaecat craft
-                          beer farm-to-table, raw denim aesthetic synth nesciunt
-                          you probably haven't heard of them accusamus labore
-                          sustainable VHS.
+                          Choosing medical health is an investment in your
+                          well-being, offering preventive care, financial
+                          security, and access to expert guidance. It enhances
+                          your quality of life, supports emotional well-being,
+                          and fosters a sense of community. Prioritizing medical
+                          health ensures a proactive approach to longevity,
+                          productivity, and a fulfilling future.
                         </div>
                       </div>
                     </div>
@@ -68,7 +64,7 @@ const Contact = () => {
                             aria-expanded="false"
                             aria-controls="collapseTwo"
                           >
-                            What are the Centre’s visiting hours?
+                            How can I schedule an appointment?
                           </a>
                         </h4>
                       </div>
@@ -79,23 +75,19 @@ const Contact = () => {
                         aria-labelledby="headingTwo"
                       >
                         <div className="panel-body">
-                          Anim pariatur cliche reprehenderit, enim eiusmod high
-                          life accusamus terry richardson ad squid. 3 wolf moon
-                          officia aute, non cupidatat skateboard dolor brunch.
-                          Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-                          wolf moon tempor, sunt aliqua put a bird on it squid
-                          single-origin coffee nulla assumenda shoreditch et.
-                          Nihil anim keffiyeh helvetica, craft beer labore wes
-                          anderson cred nesciunt sapiente ea proident. Ad vegan
-                          excepteur butcher vice lomo. Leggings occaecat craft
-                          beer farm-to-table, raw denim aesthetic synth nesciunt
-                          you probably haven't heard of them accusamus labore
-                          sustainable VHS.
+                          You can easily schedule an appointment by calling our
+                          office or using our online appointment booking system
+                          available on our website. We strive to accommodate
+                          your preferred date and time.
                         </div>
                       </div>
                     </div>
-                    <div className="panel panel-default">
-                      <div className="panel-heading" role="tab" id="headingThree">
+                    {/* <div className="panel panel-default">
+                      <div
+                        className="panel-heading"
+                        role="tab"
+                        id="headingThree"
+                      >
                         <h4 className="panel-title">
                           <a
                             className="collapsed"
@@ -131,7 +123,7 @@ const Contact = () => {
                           sustainable VHS.
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -139,86 +131,12 @@ const Contact = () => {
             <div className="col-md-6 col-sm-12 col-xs-12">
               <div className="contact-area">
                 <div className="section-title">
-                  <h3>
+                  {/* <h3>
                     Request
                     <span>Appointment</span>
-                  </h3>
+                  </h3> */}
                 </div>
-                <form
-                  name="contact_form"
-                  className="default-form contact-form"
-                  action="sendmail.php"
-                  method="post"
-                >
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="Name"
-                          placeholder="Name"
-                          required=""
-                        />
-                      </div>
-                      <div className="form-group">
-                        <input
-                          type="email"
-                          name="Email"
-                          placeholder="Email"
-                          required=""
-                        />
-                      </div>
-                      <div className="form-group">
-                        <select name="subject">
-                          <option>Departments</option>
-                          <option>Diagnostic</option>
-                          <option>Psychological</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="Phone"
-                          placeholder="Phone"
-                          required=""
-                        />
-                      </div>
-                      <div className="form-group">
-                        <input
-                          type="text"
-                          name="Date"
-                          placeholder="Date"
-                          required=""
-                          id="datepicker"
-                        />
-                        <i className="fa fa-calendar" aria-hidden="true"></i>
-                      </div>
-                      <div className="form-group">
-                        <select name="subject">
-                          <option>Doctor</option>
-                          <option>Diagnostic</option>
-                          <option>Psychological</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                      <div className="form-group">
-                        <textarea
-                          name="form_message"
-                          placeholder="Your Message"
-                          required=""
-                        ></textarea>
-                      </div>
-                      <div className="form-group text-center">
-                        <button type="submit" className="btn-style-one">
-                          submit now
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form>
+              <Appointment />
               </div>
             </div>
           </div>

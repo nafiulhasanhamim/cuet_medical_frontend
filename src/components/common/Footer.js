@@ -24,17 +24,17 @@ const Footer = () => {
                   <ul className="location-link">
                     <li className="item">
                       <i className="fa fa-map-marker"></i>
-                      <p>Modamba, NY 80021, United States</p>
+                      <p>Raozan, Pahartoli, CUET</p>
                     </li>
                     <li className="item">
                       <i className="fa fa-envelope-o" aria-hidden="true"></i>
                       <a href="#">
-                        <p>Support@medic.com</p>
+                        <p>medical@cuet.ac.bd</p>
                       </a>
                     </li>
                     <li className="item">
                       <i className="fa fa-phone" aria-hidden="true"></i>
-                      <p>(88017) +123 4567</p>
+                      <p>01944700614</p>
                     </li>
                   </ul>
                   <ul className="list-inline social-icons">

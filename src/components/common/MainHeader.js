@@ -51,16 +51,17 @@ const MainHeader = () => {
                 {/* <a href="index.html">Home</a> */}
                 <Link href="/">Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="about.html">About</a>
-              </li>
+              </li> */}
               <li>
                 {/* <a href="service.html">Service</a> */}
-                <Link href="/services">Services</Link>
+                {/* <Link href="/services">Services</Link> */}
+                <Link href="/">Home</Link>
               </li>
-              <li>
+              {/* <li>
                 <a href="gallery.html">Gallery</a>
-              </li>
+              </li> */}
               <li>
                 {/* <a href="team.html">Team</a> */}
                 <Link href="/team">Team</Link>

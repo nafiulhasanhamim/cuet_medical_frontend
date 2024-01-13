@@ -22,11 +22,11 @@ const page = () => {
         <UpperHeader />
         <MainHeader />
         <PageSlider />
-        <Information />
-        <About />
-        <Services />
+        {/* <Information /> */}
+        {/* <About /> */}
+        {/* <Services /> */}
         <Team />
-        <Testimonial />
+        {/* <Testimonial /> */}
         <Contact />
         <Footer />
       </div>

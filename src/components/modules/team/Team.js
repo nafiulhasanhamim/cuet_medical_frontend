@@ -1,6 +1,20 @@
-import React from 'react'
+"use client"
+import { GET_ALL_DOCTORS, GET_ALL_STAFFS } from '@/utils/apis/endpoint'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 const Team = () => {
+    const [doctors, setDoctors] = useState([])
+    const [staffs, setStaffs] = useState([])
+    useEffect(()=> {
+     const result = axios.get(`${GET_ALL_DOCTORS}`).then((res) => {
+       setDoctors(res.data.doctors);
+       return axios.get(`${GET_ALL_STAFFS}`)
+     })
+     .then((res)=> {
+        setStaffs(res.data.staffs)
+     })
+    }, [])
   return (
     <>
     
@@ -22,65 +36,67 @@ const Team = () => {
                             <a href="#doctor" data-toggle="tab">doctor</a>
                         </li>
                         <li role="presentation">
-                            <a href="#event-planning" data-toggle="tab">event planning</a>
+                            <a href="#event-planning" data-toggle="tab">Staffs</a>
                         </li>
-                        <li role="presentation">
+                        {/* <li role="presentation">
                             <a href="#lab" data-toggle="tab">lab</a>
                         </li>
                         <li role="presentation">
                             <a href="#marketing" data-toggle="tab">marketing</a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className="tab-content">
                     {/* <!--Start single tab content--> */}
                     <div className="team-members tab-pane fade in active row" id="doctor">
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/doctor-1.jpg" className="img-responsive" alt="team" />
-                                <h6>Dr. Emely Robert</h6>
-                                <p>Bone Specialist</p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/doctor-2.jpg" className="img-responsive" alt="team" /> 
-                                <h6>Dr. Rag Jhon</h6>
-                                <p>Eye Specialist</p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/doctor-3.jpg" className="img-responsive" alt="team" />
-                                <h6>Dr. Tent Richardson</h6>
-                                <p>Skin Specialist</p>
-                            </div>
-                        </div>
+                       {
+                        doctors?.map((doctor)=> {
+                            const {name, email, user_image, specialization, experience} = doctor;
+                            return (
+                              <>
+                                <div className="col-md-4 col-sm-6">
+                                  <div className="team-person text-center">
+                                    <img
+                                      src={user_image}
+                                      className="img-responsive"
+                                      alt="team"
+                                    />
+                                    <h6>{name}</h6>
+                                    {/* <h6>{email}</h6> */}
+                                    <p>{specialization}</p>
+                                    <p>{experience}</p>
+                                  </div>
+                                </div>
+                              </>
+                            );
+                        })
+                       }
+
+
                     </div>
                     {/* <!--End single tab content--> */}
                     {/* <!--Start single tab content--> */}
                     <div className="team-members tab-pane fade in row" id="event-planning">
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/event-1.jpg" className="img-responsive" alt="team" />
-                                <h6>Dr. Sheiring Ton</h6>
-                                <p>Manager</p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/event-2.jpg" className="img-responsive" alt="team" />
-                                <h6>Dr. Rig Richard</h6>
-                                <p>Sr. Manager</p>
-                            </div>
-                        </div>
-                        <div className="col-md-4 col-sm-6">
-                            <div className="team-person text-center">
-                                <img src="images/team/event-3.jpg" className="img-responsive" alt="team" />
-                                <h6>Dr. Tom Moddy</h6>
-                                <p>President</p>
-                            </div>
-                        </div>
+                       {
+                        staffs?.map((staff)=> {
+                            const {name, email, user_image} = staff
+                            return (
+                              <>
+                                <div className="col-md-4 col-sm-6">
+                                  <div className="team-person text-center">
+                                    <img
+                                      src={user_image}
+                                      className="img-responsive"
+                                      alt="team"
+                                    />
+                                    <h6>{name}</h6>
+                                    {/* <p>{email}</p> */}
+                                  </div>
+                                </div>
+                              </>
+                            );
+                        })
+                       }
                     </div>
                     {/* <!--End single tab content--> */}
                     {/* <!--Start single tab content--> */}
