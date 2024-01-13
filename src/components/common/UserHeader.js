@@ -2,30 +2,36 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const DoctorHeader = () => {
+const UserHeader = () => {
   const session = useSession();
   const router = useRouter();
+//   const [userId, setUserId] = useState("")
   useEffect(() => {
     if (!session?.data?.user) {
       router.push("/login");
-    }
+    } 
+    // else {
+    //     setUserId(session?.data?.user?.user_id)
+    // }
+
   }, [session]);
   return (
     <>
       <div className="header">
-        <div className="name">Doctor Panel</div>
+        <div className="name">User Panel</div>
         <div className="right">
-          <Link href="/doctor/activestatus">
-            <button className="admin_btnAll">Active Status</button>
-          </Link>
-          <Link href="/doctor">
-            <button className="admin_btnAll">Pending Appoint.</button>
+          <Link href="/">
+            <button className="admin_btnAll">Home</button>
           </Link>
 
-          <Link href="/doctor/allappointments">
-            <button className="admin_btnAll">All Appoint.</button>
+          {/* <Link href="/admin/adddoctor">
+            <button className="admin_btnAll">Pending Appoint.</button>
+          </Link> */}
+
+          <Link href={`/previousappointments`}>
+            <button className="admin_btnAll">Previous Appoint.</button>
           </Link>
 
           <Link href="/">
@@ -45,4 +51,4 @@ const DoctorHeader = () => {
   );
 };
 
-export default DoctorHeader;
+export default UserHeader;

@@ -15,6 +15,7 @@ export const EDIT_TEST_INFO = `${BASE_URL}/edit-test`;
 export const GET_ALL_MEDICINES_INFO = `${BASE_URL}/get-all-medicines-info`;
 export const GET_PARTICULAR_MEDICINE_INFO = `${BASE_URL}/get-particular-medicine-info`;
 export const PARTICULAR_MEDICINE_FULL_STOCK_DETAILS = `${BASE_URL}/particular-medicine-details`;
+export const ADD_MEDICINE = `${BASE_URL}/add-medicine-info`;
 export const ADD_MEDICINE_STOCK = `${BASE_URL}/add-medicine-stock-info`;
 
 //members related apis
@@ -29,9 +30,23 @@ export const TAKE_APPOINTMENT = `${BASE_URL}/take-appointment`
 export const PENDING_APPOINTMENTS_FOR_PARTICULAR_DOCTOR = `${BASE_URL}/get-all-pending-appointments-for-a-particular-doctor`;
 //all appointments for a particular doctor
 export const All_APPOINTMENTS_FOR_PARTICULAR_DOCTOR = `${BASE_URL}/get-all-appointments-for-a-particular-doctor`;
+//all appointments for a particular user
+export const All_APPOINTMENTS_FOR_PARTICULAR_USER = `${BASE_URL}/get-all-appointments-for-a-particular-user`;
+
 //all apointments
 export const All_APPOINTMENTS = `${BASE_URL}/get-all-appointments`;
 //change appointment status
 export const CHANGE_APPOINTMENT_STATUS = `${BASE_URL}/change-appointment-status`;
 //change medicine supply status
 export const CHANGE_MEDICINE_SUPPLY_STATUS = `${BASE_URL}/change-medicine-supply-status`;
+//add medicine to appointment 
+export const ADD_MEDICINE_TO_APPOINTMENT = `${BASE_URL}/add-medicine-to-appointment`;
+//prescribed medicine details for generating prescription
+export const PRESCRIBED_MEDICINE_DETAILS = `${BASE_URL}/prescribed-medicine-details`;
+
+//add active doctor
+export const ADD_ACTIVE_DOCTOR = `${BASE_URL}/add-active-doctor`
+
+//remove active doctor
+export const REMOVE_ACTIVE_DOCTOR = `${BASE_URL}/remove-active-doctor`
+

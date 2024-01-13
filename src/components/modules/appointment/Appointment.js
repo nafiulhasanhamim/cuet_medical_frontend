@@ -12,7 +12,6 @@ const Appointment = () => {
   const [activeDoctors, setActiveDoctors] = useState([]);
   const [appointment, setAppointment] = useState({
     doctor: "",
-    //   patient: session?.data?.user?._id,
     problem_description: "",
   });
   useEffect(() => {

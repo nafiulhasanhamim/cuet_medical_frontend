@@ -3,6 +3,7 @@ import { errorToast, successToast } from "@/components/common/Toast";
 import { CHANGE_APPOINTMENT_STATUS, PENDING_APPOINTMENTS_FOR_PARTICULAR_DOCTOR } from "@/utils/apis/endpoint";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 const findMonth = (month) => {
   const getMonth = {
@@ -70,6 +71,7 @@ const handleAppointmentStatusChange = async (_id) => {
                   <th style={{ textAlign: "center" }}>Phone No.</th>
 
                   <th style={{ textAlign: "center" }}>Problem Description</th>
+                  <th style={{ textAlign: "center" }}>Prescription</th>
                   <th style={{ textAlign: "center" }}>Status</th>
                   <th style={{ textAlign: "center" }}>Date</th>
                 </tr>
@@ -83,6 +85,7 @@ const handleAppointmentStatusChange = async (_id) => {
                     _id,
                     doctor,
                     patient,
+                    prescription,
                     createdAt
                   } = appoinment;
                   const { name, email, user_image, phone_number } = appoinment.patientDetails[0];
@@ -100,6 +103,23 @@ const handleAppointmentStatusChange = async (_id) => {
                         <td data-label="Problem Description">
                           {problem_description}
                         </td>
+                        <td data-label="Prescription">
+                          {prescription?.length > 0 ? (
+                            <Link
+                              href={`/prescription/viewprescription/${_id}`}
+                            >
+                              <button className="admin_btnAll">
+                                View Prescription
+                              </button>
+                            </Link>
+                          ) : (
+                            <Link href={`/prescription/addprescription/${_id}`}>
+                              <button className="admin_btnAll">
+                                Add Prescription
+                              </button>
+                            </Link>
+                          )}
+                        </td>
                         <td data-label="Status">
                           {/* {`${appointment_status}`} */}
                           {appointment_status === "pending" ? (
@@ -110,7 +130,9 @@ const handleAppointmentStatusChange = async (_id) => {
                               {appointment_status}
                             </button>
                           ) : (
-                            <button class="order_now">{appointment_status}</button>
+                            <button class="order_now">
+                              {appointment_status}
+                            </button>
                           )}
                         </td>
                         <td data-label="Date">{`${findMonth(

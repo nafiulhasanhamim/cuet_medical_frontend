@@ -16,7 +16,10 @@ const MainHeader = () => {
       // errorToast("Login Failed.Try Again!!!")
     } else if (session?.data?.user?.role === "admin") {
       router.push("/admin");
-    }
+    } 
+    // else if (session?.data?.user?.role === "patient") {
+    //   router.push("/profile");
+    // }
   }, [session]);
   return (
     <>
@@ -67,7 +70,7 @@ const MainHeader = () => {
                 <Link href="/appointment">Appointment</Link>
               </li>
               <li>
-                <a href="blog.html">Blog</a>
+                <Link href="/profile">Profile</Link>
               </li>
               <li>
                 {/* <a href="contact.html">Contact</a> */}

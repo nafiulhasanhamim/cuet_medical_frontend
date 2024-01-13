@@ -16,6 +16,8 @@ const PageTitle = () => {
      setPageTitle("login");
    } else if (pathName === "/registration") {
      setPageTitle("registration");
+   } else if(pathName === "/profile") {
+    setPageTitle("user profile")
    }
  }, []);
   return (

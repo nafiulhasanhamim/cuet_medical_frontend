@@ -9,6 +9,7 @@ import {
 } from "@/utils/apis/endpoint";
 import axios from "axios";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 const findMonth = (month) => {
   const getMonth = {
@@ -74,6 +75,7 @@ const AllAppointments = () => {
                   <th style={{ textAlign: "center" }}>Phone No.</th>
 
                   <th style={{ textAlign: "center" }}>Problem Description</th>
+                  <th style={{ textAlign: "center" }}>Prescription</th>
                   <th style={{ textAlign: "center" }}>Status</th>
                   <th style={{ textAlign: "center" }}>Date</th>
                 </tr>
@@ -88,6 +90,7 @@ const AllAppointments = () => {
                     _id,
                     doctor,
                     patient,
+                    prescription,
                     createdAt,
                   } = appoinment;
                   const { name, email, user_image, phone_number } =
@@ -105,6 +108,19 @@ const AllAppointments = () => {
                         <td data-label="Phone no.">{phone_number}</td>
                         <td data-label="Problem Description">
                           {problem_description}
+                        </td>
+                        <td data-label="Prescription">
+                          {prescription?.length > 0 ? (
+                            <Link
+                              href={`/prescription/viewprescription/${_id}`}
+                            >
+                              <button className="admin_btnAll">
+                                View Prescription
+                              </button>
+                            </Link>
+                          ) : (
+                             "..."
+                          )}
                         </td>
                         <td data-label="Status">
                           {/* {`${appointment_status}`} */}

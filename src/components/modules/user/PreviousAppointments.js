@@ -1,9 +1,8 @@
 "use client";
 import { errorToast, successToast } from "@/components/common/Toast";
 import {
-    All_APPOINTMENTS_FOR_PARTICULAR_DOCTOR,
+  All_APPOINTMENTS_FOR_PARTICULAR_USER,
   CHANGE_APPOINTMENT_STATUS,
-  PENDING_APPOINTMENTS_FOR_PARTICULAR_DOCTOR,
 } from "@/utils/apis/endpoint";
 import axios from "axios";
 import { useSession } from "next-auth/react";
@@ -26,7 +25,7 @@ const findMonth = (month) => {
   };
   return getMonth[month];
 };
-const AllAppointments = () => {
+const PreviousAppointments = () => {
   const session = useSession();
   const [pendingAppointments, setPendingAppointments] = useState([]);
   const [flag, setFlag] = useState(true);
@@ -34,7 +33,7 @@ const AllAppointments = () => {
     if (session?.data?.user) {
       const result = axios
         .get(
-          `${All_APPOINTMENTS_FOR_PARTICULAR_DOCTOR}/${session?.data?.user?._id}`
+          `${All_APPOINTMENTS_FOR_PARTICULAR_USER}/${session?.data?.user?._id}`
         )
         .then((res) => {
           setPendingAppointments(res.data.appointments);
@@ -108,7 +107,9 @@ const AllAppointments = () => {
                         </td>
                         <td data-label="Prescription">
                           {prescription?.length > 0 ? (
-                            <Link href={`/prescription/viewprescription/${_id}`}>
+                            <Link
+                              href={`/prescription/viewprescription/${_id}`}
+                            >
                               <button className="admin_btnAll">
                                 View Prescription
                               </button>
@@ -122,19 +123,9 @@ const AllAppointments = () => {
                           )}
                         </td>
                         <td data-label="Status">
-                          {/* {`${appointment_status}`} */}
-                          {appointment_status === "pending" ? (
-                            <button
-                              onClick={() => handleAppointmentStatusChange(_id)}
-                              class="order_now"
-                            >
-                              {appointment_status}
-                            </button>
-                          ) : (
-                            <button class="order_now">
-                              {appointment_status}
-                            </button>
-                          )}
+                          <button class="order_now">
+                            {appointment_status}
+                          </button>
                         </td>
                         <td data-label="Date">{`${findMonth(
                           month
@@ -152,4 +143,4 @@ const AllAppointments = () => {
   );
 };
 
-export default AllAppointments;
+export default PreviousAppointments;
